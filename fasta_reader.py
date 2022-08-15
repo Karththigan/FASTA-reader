@@ -1,6 +1,13 @@
+import ntpath
+
+#if filepath ends in backslash, get tail from path
+def get_prior_file(path):
+    head, tail = ntpath.split(path)
+    return tail or ntpath.basename(head)
+
 class FASTA:
     """
-    
+    Convert a textual FASTA file to an object where individual sequences can be accessed and extracted
     """
     def __init__(self, sequencetextfile):
         self.file = sequencetextfile
@@ -27,10 +34,10 @@ class FASTA:
         self.keys = name_and_seq.values()
     
     def __str__(self) -> str:
-        return f"FASTA of {self.file}"
+        return f"FASTA file {ntpath.basename(self.file)}"
     
-    def __repr__(self) -> str:
-        return f"FASTA.{self.file}"
+    # def __repr__(self) -> str:
+    #     return f"FASTA.{ntpath.basename(self.file)}"
     
     def aa_content(self, basepairs):
         """Return the percentage of specific bases contianed in a nucleic acid sequence
@@ -73,7 +80,7 @@ class FASTA:
 
 def main():
     fasta_one = FASTA("rosalind_gc.txt")
-    print(fasta_one.get_sequence("Rosalind_6363"))
+    print(repr(fasta_one))
 
 if __name__ == "__main__":
     main()
