@@ -73,10 +73,6 @@ class FASTA:
 
 def main():
     fasta_one = FASTA("rosalind_gc.txt")
-    # print(list(fasta_one.taxa))
-    # AT_content = fasta_one.aa_content(["A", "T", "C"])
-    # print(AT_content)
-    # print(len(fasta_one.taxa), len(AT_content))
     print(fasta_one.get_sequence("Rosalind_6363"))
 
 if __name__ == "__main__":
