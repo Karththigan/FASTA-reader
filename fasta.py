@@ -78,9 +78,3 @@ class FASTA:
     
 
 
-def main():
-    fasta_one = FASTA("rosalind_gc.txt")
-    print(repr(fasta_one))
-
-if __name__ == "__main__":
-    main()
